@@ -97,7 +97,7 @@ function nextMove() {
 function checkWin() {
   let result = false;
   if (move_count < 3) {
-    return false;
+    return result;
   } else {
     let winning_strategy = winning_strategies[current_position];
     winning_strategy.forEach(function (combo) {
@@ -106,7 +106,6 @@ function checkWin() {
         game_pos_status[combo[1]] === current_move
       ) {
         result = true;
-        return result;
       }
     });
     return result;
