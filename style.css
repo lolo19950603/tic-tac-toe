@@ -2,22 +2,36 @@
   box-sizing: border-box;
 }
 
-h1,
-#game {
+h1 {
   margin: auto;
   font-size: 4rem;
   animation: pulsate 1.5s infinite alternate;
 }
 
-button {
+span {
+  cursor: pointer;
+  color: red;
+  font-family: "Helvetica Neue", sans-serif;
+  text-align: center;
   margin: auto;
   font-size: 3rem;
-  animation: pulsate 1.5s infinite alternate;
+  animation: pulsateRestart 1.5s infinite alternate;
+}
+
+span:hover {
+  font-size: 3.1rem;
 }
 
 h2 {
   font-size: 3rem;
   animation: flicker 1.5s infinite alternate;
+}
+
+h1,
+h2 {
+  font-family: "Helvetica Neue", sans-serif;
+  text-align: center;
+  color: #fff;
 }
 
 @keyframes pulsate {
@@ -29,6 +43,42 @@ h2 {
   0% {
     text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 10px black,
       0 0 45px black, 0 0 55px black, 0 0 70px black, 0 0 80px black;
+  }
+}
+
+@keyframes pulsateRestart {
+  100% {
+    text-shadow: 0 0 4px red, 0 0 11px red, 0 0 19px red, 0 0 40px black,
+      0 0 80px black, 0 0 90px black, 0 0 100px black, 0 0 150px black;
+  }
+
+  0% {
+    text-shadow: 0 0 2px red, 0 0 4px red, 0 0 6px red, 0 0 10px black,
+      0 0 45px black, 0 0 55px black, 0 0 70px black, 0 0 80px black;
+  }
+}
+
+@keyframes pulsateX {
+  100% {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px purple,
+      0 0 80px purple, 0 0 90px purple, 0 0 100px purple, 0 0 150px purple;
+  }
+
+  0% {
+    text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 10px purple,
+      0 0 45px purple, 0 0 55px purple, 0 0 70px purple, 0 0 80px purple;
+  }
+}
+
+@keyframes pulsateO {
+  100% {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px yellow,
+      0 0 80px yellow, 0 0 90px yellow, 0 0 100px yellow, 0 0 150px yellow;
+  }
+
+  0% {
+    text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 10px yellow,
+      0 0 45px yellow, 0 0 55px yellow, 0 0 70px yellow, 0 0 80px yellow;
   }
 }
 
@@ -51,15 +101,11 @@ h2 {
   }
 }
 
-h1,
-h2,
-#game,
-button {
+#game {
+  margin: auto;
   font-family: "Helvetica Neue", sans-serif;
   text-align: center;
   color: #fff;
-  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px black,
-    0 0 82px black, 0 0 92px black, 0 0 102px black, 0 0 151px black;
 }
 
 body {
@@ -84,6 +130,10 @@ body {
   font-size: 175px;
 }
 
+.pos {
+  cursor: pointer;
+}
+
 .vert_line {
   background-color: #fff;
   height: 100%;
@@ -96,10 +146,4 @@ body {
   height: 12px;
   width: 100%;
   box-shadow: 0px 0px 15px 10px #fff;
-}
-
-button {
-  border: solid hotpink;
-  border-radius: 20px;
-  box-shadow: 0px 0px 15px 10px hotpink;
 }

@@ -54,17 +54,19 @@ const winning_strategies = [
 
 function nextMove() {
   if (current_move === "X") {
+    document.getElementById(current_position.toString()).style =
+      'cursor: default; animation: pulsateX 1.5s infinite alternate;';
     if (checkWin() === true) {
       // create restart button plus dont allow anymore entry
       instruction.innerHTML =
-        'Player X WIN!&nbsp;&nbsp;&nbsp;<button type="button">RESTART</button>';
+        'Player X WIN!&nbsp;&nbsp;&nbsp;<span>RESTART</span>';
       game_is_finished = true;
     } else {
       if (move_count === 9) {
         console.log(instruction.textContent);
         // create restart button
         instruction.innerHTML =
-          'TIE!&nbsp;&nbsp;&nbsp;<button type="button">RESTART</button>';
+          'TIE!&nbsp;&nbsp;&nbsp;<span>RESTART</span>';
         game_is_finished = true;
       } else {
         current_move = "O";
@@ -73,17 +75,19 @@ function nextMove() {
       }
     }
   } else {
+    document.getElementById(current_position.toString()).style =
+    "cursor: default; animation: pulsateO 1.5s infinite alternate;";
     if (checkWin() === true) {
       // create restart button plus dont allow anymore entry
       instruction.innerHTML =
-        'Player O WIN!&nbsp;&nbsp;&nbsp;<button type="button">RESTART</button>';
+        'Player O WIN!&nbsp;&nbsp;&nbsp;<span>RESTART</span>';
       game_is_finished = true;
     } else {
       if (move_count === 9) {
         console.log(instruction.textContent);
         // create restart button
         instruction.innerHTML =
-          'TIE!&nbsp;&nbsp;&nbsp;<button type="button">RESTART</button>';
+          'TIE!&nbsp;&nbsp;&nbsp;<span>RESTART</span>';
         game_is_finished = true;
       } else {
         current_move = "X";
@@ -124,19 +128,17 @@ function handleClickPosition(evt) {
       } else {
         instruction.textContent = "Occupied!";
       }
-    } else {
-      instruction.textContent = "Invalid entry!";
     }
   } else {
     instruction.innerHTML =
-      'Invalid entry! Game is finished!&nbsp;&nbsp;&nbsp;<button type="button">RESTART</button>';
+      'Invalid entry! Game is finished!&nbsp;&nbsp;&nbsp;<span>RESTART</span>';
   }
 }
 
 function handleClickRestart(evt) {
   evt.preventDefault();
   console.log(evt.target.tagName);
-  if (evt.target.tagName === "BUTTON") {
+  if (evt.target.tagName === "SPAN") {
     location.reload();
   }
 }
