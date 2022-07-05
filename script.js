@@ -137,7 +137,6 @@ function handleClickPosition(evt) {
 
 function handleClickRestart(evt) {
   evt.preventDefault();
-  console.log(evt.target.tagName);
   if (evt.target.tagName === 'SPAN') {
     location.reload();
   }
